@@ -68,7 +68,8 @@ Ask: **"Good to apply? Tell me what to skip or change."** Do not write until the
 
 ## STAGE 4 — APPLY (ONLY AFTER APPROVAL)
 
-1. Make the approved skill edits and scaffolds; execute organization fixes and archives
+0. **Back up before writing.** Copy every file the plan will edit (backlog, skills, CLAUDE.md, map) to a dated backup dir (e.g. `~/.claude/backups/flywheel/YYYY-MM-DD/`) first. If a write goes wrong, restore from there — never reconstruct from memory.
+1. Make the approved skill edits and scaffolds; execute organization fixes and archives. **Archiving means moving aside** (e.g. `~/.claude/skills/_archive/`) — this system never deletes an artifact, only backlog housekeeping lines.
 2. Create approved routines/loops (routine prompts only ever created with approved text — never improvised)
 3. **Stamp each edited skill's Refinement Log** — a short section at the bottom of its SKILL.md: `- YYYY-MM-DD: [what changed and why, one line]`. This is how future models see the evolution and don't re-litigate past decisions. Create the section if missing.
 4. Update the backlog: move applied items to **Applied** with today's date, delete Applied entries older than 30 days, remove dropped items, update the **Last tuneup** date in the header
@@ -94,6 +95,7 @@ Ask: **"Good to apply? Tell me what to skip or change."** Do not write until the
 - This skill maintains the system; it does not do project work. If a backlog item turns into real project work, note it as a next-session task instead of doing it here.
 - If the backlog is empty and all audits pass, say so in three lines and stamp the date. A short tuneup is a healthy tuneup — don't invent work.
 - If the same friction shows up 2+ weeks running, the fix is structural (skill rewrite, CLAUDE.md rule, or dropping the workflow) — escalate the proposal accordingly.
+- **If the backlog is missing or corrupted, never proceed silently:** check the backup dir first, restore the newest copy, and tell the user what window of entries (if any) was lost. Only recreate from the template when no backup exists.
 
 ## Refinement Log
 - (stamped by each tuneup that edits this file)

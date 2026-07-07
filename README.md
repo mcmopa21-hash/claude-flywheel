@@ -29,11 +29,24 @@ hooks/
 
 ## Install (5 minutes)
 
+> **Install safety:** nothing here should clobber what you already have. If a same-named skill exists, merge by hand instead of copying over it. The CLAUDE.md snippet gets **appended** to your existing CLAUDE.md, never replaces it.
+
 1. Copy the three skill folders into `~/.claude/skills/` (or a project's `.claude/skills/` to keep it repo-scoped).
 2. Create your backlog: copy `templates/BACKLOG.md` somewhere stable (e.g. `~/.claude/BACKLOG.md`) .
 3. Copy `templates/SYSTEM_MAP.md` to `~/.claude/SYSTEM_MAP.md` and fill in what your setup already has.
 4. Open `CLAUDE_MD_SNIPPET.md`, replace the `{{BACKLOG_PATH}}` / `{{PLAYBOOK_PATH}}` placeholders, and paste the block into `~/.claude/CLAUDE.md` (create the file if it doesn't exist). Put `ARTIFACT_PLAYBOOK.md` wherever the path you chose points.
 5. Start your next session with `/session-start`. End it with `/session-close`. Run `/system-tuneup` weekly on your most capable model.
+
+## Failsafes
+
+A system that edits its own instructions needs guardrails against itself:
+
+- **Nothing writes without approval.** Session-close and the tuneup always present their full plan and wait. There is no auto-apply mode, deliberately.
+- **Backup before overwrite.** Both writing skills copy any file they're about to change into a dated backup dir first (`~/.claude/backups/flywheel/YYYY-MM-DD/`). Recovery is a file copy, not a reconstruction.
+- **Archive, never delete.** Pruned skills move to `_archive/`; the only true deletions are 30-day-old backlog housekeeping lines.
+- **A missing backlog is loud.** Session-start and the tuneup treat a vanished/corrupted backlog as an incident: restore from backup, report the lost window — never silently recreate and move on.
+- **The hook can't hurt you.** `backlog_status.sh` always exits 0 and degrades to a warning line; a broken backlog file can never block a session from starting.
+- **Two independent nudge paths.** The tuneup reminder comes from both the session-start skill (model-driven) and the optional hook (harness-driven), so one failing doesn't stall the flywheel.
 
 ## Design principles
 

@@ -39,7 +39,7 @@ Don't treat stale flags as facts — surface them for confirmation. If nothing l
 
 ## STEP 3 — TUNEUP CHECK
 
-Read the header of the improvement backlog:
+Read the header of the improvement backlog. **If the file is missing, flag it prominently and propose restoring from the latest backup (or the template if none) — never skip this check silently**, because a vanished backlog means friction is going unlogged. Otherwise:
 - If the last tuneup is more than 7 days old: **"System tuneup overdue (last: [date]) — run `/system-tuneup` on your most capable model when you have 20 minutes."**
 - If any Open backlog item is relevant to today's work, surface it alongside the open threads.
 

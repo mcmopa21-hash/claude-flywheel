@@ -95,6 +95,7 @@ Then stop and ask: **"Good to save all of this? Say yes to write everything, or 
 
 ## STAGE 4 — WRITE (ONLY AFTER APPROVAL)
 
+0. Before overwriting any existing memory or skill file, copy it to a dated backup dir (e.g. `~/.claude/backups/flywheel/YYYY-MM-DD/`). New files need no backup.
 1. Write or update each memory file per the approved plan
 2. **Persist every carrying-forward item into the relevant project memory** — the chat close-out dies with the terminal; `/session-start` can only surface open threads that live in files. If an open thread has no project memory, create one.
 3. Update skill files, the backlog, and CLAUDE.md per the approved plan
